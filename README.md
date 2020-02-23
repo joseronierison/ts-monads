@@ -1,4 +1,4 @@
-[![ts-monads](https://circleci.com/gh/joseronierison/ts-monads>.svg?style=svg)](https://app.circleci.com/github/joseronierison/ts-monads/pipelines)
+[![ts-monads](https://circleci.com/gh/joseronierison/ts-monads.svg?style=svg)](https://app.circleci.com/github/joseronierison/ts-monads/pipelines)
 
 Type Script Monads
 
