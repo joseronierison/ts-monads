@@ -47,13 +47,16 @@ workflows:
   test-deploy:
     jobs:
       - test
-      - deploy:
+      - deploy_approval:
+          type: approval
           requires:
             - test
           filters:
             tags:
               only: /^v.*/
-            branches:
-              only:
-                - master
-                - rc-*
+      - deploy:
+          requires:
+            - deploy_approval
+          filters:
+            tags:
+              only: /^v.*/
