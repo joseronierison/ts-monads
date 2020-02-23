@@ -11,7 +11,7 @@ npm i ts-monads
 ### Doc
 Table of contents
 
-- [Index]()
+- [Index](https://github.com/joseronierison/ts-monads#option)
 
 #### Option
 ```typescript
