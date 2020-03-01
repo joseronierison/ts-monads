@@ -1,9 +1,10 @@
 {
   "name": "@joseronierison/ts-monads",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Typescripts Monads very similar to the Scala Monads",
   "main": "./lib",
   "scripts": {
+    "clean": "rm -rf lib",
     "build": "tsc",
     "test": "NODE_ENV=test mocha --require ts-node/register test/**/*.test.ts"
   },
