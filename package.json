@@ -1,6 +1,6 @@
 {
   "name": "@joseronierison/ts-monads",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Typescripts Monads very similar to the Scala Monads",
   "main": "dist/index.js",
   "scripts": {

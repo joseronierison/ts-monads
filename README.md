@@ -6,8 +6,14 @@ Inspired in the Scala Monads
 
 ### Installation
 
-```
+```shell script
 npm i ts-monads
+```
+
+### Runnings tests locally
+
+```shell script
+npm test
 ```
 
 ### Doc
@@ -35,6 +41,29 @@ const noneOp = maybeTen.flatMap(g => noneValue.map(n => n * g));
 
 console.log(optionalOperation.getOrElse(0)); // 50
 console.log(noneOp.getOrElse(10)); // 10
+```
+
+#### Try
+```typescript
+import { Tryable, Try } from "ts-monads/try";
+
+const tryTen: Tryable<number> = Try.run(() => 10);
+const tryFive: Tryable<number> = Try.run(() => 5);
+const tryFailed: Tryable<number> = Try.run(() => { throw new Error("Something went wrong!") });
+
+const riskOperation = 
+  tryFive
+    .map(five => five * 2)
+    .flatMap(ten => tryTen.map(anotherTen => ten * anotherTen));
+
+const failedOp = tryFailed.flatMap(g => tryTen.map(n => n * g));
+
+console.log(riskOperation.getOrElse(0)); // 100
+console.log(riskOperation.isSuccess()); // true
+
+console.log(failedOp.getOrElse(10)); // 10
+console.log(riskOperation.isFailure()); // true
+console.log(riskOperation.getError()); // Error("Something went wrong!")
 ```
 
 ### Contributing
