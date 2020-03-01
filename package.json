@@ -1,8 +1,8 @@
 {
   "name": "@joseronierison/ts-monads",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Typescripts Monads very similar to the Scala Monads",
-  "main": "./lib",
+  "main": "./src",
   "scripts": {
     "clean": "rm -rf lib",
     "build": "tsc",
