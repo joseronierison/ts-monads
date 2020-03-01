@@ -2,13 +2,17 @@ export interface Optional<T> {
   map<V>(fn: (v: T) => V) : Optional<V>;
   flatMap<V>(fn: (v: T) => Optional<V>) : Optional<V>;
   getOrElse(v: T): T;
+
+  // That should be a problem when it is a object
+  // TODO: Implement something like a deep equal
   exists(v: T): Boolean;
+
   get(): T;
   isEmpty(): Boolean;
   isDefined(): Boolean;
 }
 
-export class Index<T> {
+export class Option<T> {
   static of<W>(v: W): Optional<W> {
     if (!v) {
       return new None();
@@ -22,7 +26,7 @@ export class Index<T> {
   }
 }
 
-export class Some<T> extends Index<T> implements Optional<T> {
+export class Some<T> extends Option<T> implements Optional<T> {
   constructor(public readonly value: T) {
     super();
   }
@@ -32,7 +36,7 @@ export class Some<T> extends Index<T> implements Optional<T> {
   }
 
   map<V>(fn: (v: T) => V): Optional<V> {
-    return Index.of(fn(this.value));
+    return Option.of(fn(this.value));
   }
 
   getOrElse(orElse: T): T {
@@ -56,14 +60,14 @@ export class Some<T> extends Index<T> implements Optional<T> {
   }
 }
 
-export class None<T> extends Index<T> implements Optional<T> {
+export class None<T> extends Option<T> implements Optional<T> {
 
   map<V>(fn: (v: T) => V): Optional<V> {
-    return Index.none();
+    return Option.none();
   }
 
   flatMap<V>(fn: (v: T) => Optional<V>): Optional<V> {
-    return Index.none();
+    return Option.none();
   }
 
   getOrElse(orElse: T): T {
