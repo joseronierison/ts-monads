@@ -7,13 +7,13 @@ Inspired in the Scala Monads
 ### Installation
 
 ```shell script
-npm i ts-monads
+  npm i @joseronierison/ts-monads
 ```
 
 ### Runnings tests locally
 
 ```shell script
-npm test
+  npm test
 ```
 
 ### Doc
@@ -23,7 +23,7 @@ Table of contents
 
 #### Option
 ```typescript
-import { Optional, Option } from "ts-monads/option";
+import { Optional, Option } from "@joseronierison/ts-monads/option";
 
 const maybeTen: Optional<number> = Option.of(10);
 const maybeTwo: Optional<number> = Option.of(2);
@@ -45,7 +45,7 @@ console.log(noneOp.getOrElse(10)); // 10
 
 #### Try
 ```typescript
-import { Tryable, Try } from "ts-monads/try";
+import { Tryable, Try } from "@joseronierison/ts-monads/try";
 
 const tryTen: Tryable<number> = Try.run(() => 10);
 const tryFive: Tryable<number> = Try.run(() => 5);

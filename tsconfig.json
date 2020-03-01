@@ -7,7 +7,7 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "lib",
     "baseUrl": ".",
     "strict": false,
     "skipLibCheck": true,
@@ -20,6 +20,6 @@
       ]
     }
   },
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "lib"],
   "include": ["src/**/*"]
 }
