@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Publish package
           command: |
-            npm run build
+            npm run prepublish
             npm publish
 
 

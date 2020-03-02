@@ -1,6 +1,7 @@
 import { Optional, Option } from "../option";
 import { UnsupportedOperationError } from "../exceptions/UnsupportedOperationError";
 
+
 export interface Tryable<T> {
   map<V>(fn: (v: T) => V) : Tryable<V>;
   flatMap<V>(fn: (v: T) => Tryable<V>) : Tryable<V>;
@@ -28,8 +29,7 @@ export class Try<T> {
     }
   }
 
-  static readonly Success  = class TrySuccess<T> extends Try<T> implements Tryable<T> {
-
+  static readonly Success: any = class TrySuccess<T> extends Try<T> implements Tryable<T> {
     constructor(private readonly value: T) {
       super();
     }
@@ -47,7 +47,7 @@ export class Try<T> {
         this.value instanceof Try.Success ||
         this.value instanceof Try.Failed
       ) {
-        return this.value.flatten();
+        return (this.value as any).flatten();
       }
 
       return new Try.Success(this.value);
@@ -86,7 +86,7 @@ export class Try<T> {
     };
   };
 
-  static readonly Failed = class TryFailed<T> extends Try<T> implements Tryable<T> {
+  static readonly Failed: any = class TryFailed<T> extends Try<T> implements Tryable<T> {
     constructor(private readonly error: Error) {
       super();
     }

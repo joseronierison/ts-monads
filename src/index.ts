@@ -1,7 +1,2 @@
-import * as optionals from "./option";
-import * as tryables from "./try";
-
-export {
-	optionals,
-	tryables,
-};
+export * from "./option";
+export * from "./try";
